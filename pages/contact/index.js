@@ -1,19 +1,20 @@
-import React from 'react';
 import Head from 'next/head';
 
-export default function Home() {
+const ContactPage = () => {
 	return (
 		<>
 			<Head>
-				<title>HomePage</title>
+				<title>Contact</title>
 				<meta name="description" content="Testing the latest" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main className=" bg-slate-400 h-screen w-full flex justify-center items-center">
+			<section className=" bg-slate-400 h-screen w-full flex justify-center items-center">
 				<h1 className="text-black text-center text-7xl ">
-					This is the HomePage!!!
+					This is the ContactPage!!!
 				</h1>
-			</main>
+			</section>
 		</>
 	);
-}
+};
+
+export default ContactPage;
