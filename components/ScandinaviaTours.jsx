@@ -7,21 +7,22 @@ const ScandinaviaTours = ({ session }) => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	const fetchTours = async () => {
-		try {
-			setLoading(true);
-			const { data, error } = await supabase.from('scandinavia_tour').select('*');
-
-			setTours(data);
-			setLoading(false);
-		} catch (error) {
-			setError(error.message);
-		}
-	};
-
 	useEffect(() => {
+		const fetchTours = async () => {
+			try {
+				setLoading(true);
+				const { data, error } = await supabase
+					.from('scandinavia_tour')
+					.select('*');
+
+				setTours(data);
+				setLoading(false);
+			} catch (error) {
+				setError(error.message);
+			}
+		};
 		fetchTours();
-	}, []);
+	}, [supabase]);
 
 	if (loading) return <div>Loading...</div>;
 	if (error) return <div>{error}</div>;
